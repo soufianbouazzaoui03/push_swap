@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:38:24 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/28 15:06:58 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:30:51 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ typedef struct list
     int         content;
     struct list *next;
 }t_list;
+
+int   implement(t_list **stack, int num);
+
 
 char	**ft_split(const char *s, char c);
 int	ft_atoi(const char *str);
