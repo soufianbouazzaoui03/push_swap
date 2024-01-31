@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 21:03:09 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/31 22:42:24 by soel-bou         ###   ########.fr       */
+/*   Created: 2024/01/31 23:27:11 by soel-bou          #+#    #+#             */
+/*   Updated: 2024/01/31 23:44:13 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-t_list	*ft_lstnew(int content)
-{
-	t_list	*rtr;
 
-	rtr = (t_list *)malloc(sizeof(t_list));
-	if (!rtr)
-		return (NULL);
-	rtr->content = content;
-	rtr->index = 0;
-	rtr->next = NULL;
-	return (rtr);
+void    sorting(t_list **stacka, t_list **stackb)
+{
+    int chunk;
+    int ref;
+    
+    chunk = ft_lstsize(*stacka);
+    
+    
 }

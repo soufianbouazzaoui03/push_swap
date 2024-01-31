@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:38:24 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/29 15:30:51 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/01/31 23:00:01 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@
 typedef struct list
 {
     int         content;
+    int         index;
     struct list *next;
 }t_list;
 
-int   implement(t_list **stack, int num);
-
+int implement(t_list **stack, int num);
+int is_sorted(t_list *stack);
+void    indexed(t_list *stack);
 
 char	**ft_split(const char *s, char c);
 int	ft_atoi(const char *str);

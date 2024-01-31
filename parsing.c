@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:08:56 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/29 16:02:42 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:47:24 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ int main(int argc, char **argv)
 {
     t_list *stack;
     if(checklist(argc, argv, &stack))
-        printf("error");
+            printf("error");
+    if(is_sorted(stack))
+        return (0);
     while(stack)
     {
         printf("%d\n", stack->content);
