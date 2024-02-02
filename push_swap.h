@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:38:24 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/31 23:00:01 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/01 23:09:11 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct list
 int implement(t_list **stack, int num);
 int is_sorted(t_list *stack);
 void    indexed(t_list *stack);
+void    sorting(t_list **stacka, t_list **stackb);
 
 char	**ft_split(const char *s, char c);
 int	ft_atoi(const char *str);

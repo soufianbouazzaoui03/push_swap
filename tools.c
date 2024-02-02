@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:31 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/31 23:15:29 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/01 23:23:37 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,20 @@ void    indexed(t_list *stack)
 {
     t_list  *tmp;
     t_list  *head;
+    t_list  *cpy;
 
     head = stack;
-    while(stack)
+    cpy = stack;
+    while(cpy)
     {
         tmp = head;
         while(tmp)
         {
-            if (stack->content > tmp->content)
-                stack->index++;
+            if (cpy->content > tmp->content)
+                cpy->index++;
             tmp = tmp->next;
         }
-        stack = stack->next;
+        cpy = cpy->next;
     }
 }
 int   implement(t_list **stack, int num)
@@ -61,16 +63,3 @@ int   implement(t_list **stack, int num)
     return (0);
 }
 
-int main()
-{
-    t_list *stack = ft_lstnew(5);
-    ft_lstadd_back(&stack, ft_lstnew(10));
-    ft_lstadd_back(&stack, ft_lstnew(-10));
-    ft_lstadd_back(&stack, ft_lstnew(12));
-    indexed(stack);
-    while(stack)
-    {
-        printf("%d\n", stack->index);
-        stack = stack->next;
-    }
-}

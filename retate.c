@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 00:56:42 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/25 13:01:19 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/02 02:45:54 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void    retate(t_list **stack)
     *stack = (*stack)->next;
     tmp->next = NULL;
     ft_lstadd_back(stack, tmp);
+    printf("retate");
 }
 
 void    rr(t_list *stack1, t_list *stack2)
