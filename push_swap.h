@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:38:24 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/01 23:09:11 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:31:31 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <string.h>
+#include <limits.h>
 
 typedef struct list
 {
@@ -25,8 +26,13 @@ typedef struct list
 
 int implement(t_list **stack, int num);
 int is_sorted(t_list *stack);
+t_list *findmax(t_list *stack);
 void    indexed(t_list *stack);
+void    changeindex(t_list *stack);
 void    sorting(t_list **stacka, t_list **stackb);
+void    sortback(t_list **stacka, t_list **stackb);
+int ft_bestmove(t_list *stack);
+void sorting2(t_list **stacka, t_list **stackb);
 
 char	**ft_split(const char *s, char c);
 int	ft_atoi(const char *str);
@@ -40,8 +46,12 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 
 
+void    retatea(t_list **stack);
+void    retateb(t_list **stack);
 void    retate(t_list **stack);
+void    rr(t_list **stack1, t_list **stack2);
 void    rev(t_list **stack);
-void    push(t_list **stack1, t_list **stack2);
+void    pushb(t_list **stack1, t_list **stack2);
+void    pusha(t_list **stack1, t_list **stack2);
 void    swap(t_list **stack);
 void    ss(t_list **stack1, t_list **stack2);

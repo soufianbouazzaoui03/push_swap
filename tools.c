@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:31 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/01 23:23:37 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:52:43 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,20 @@ void    indexed(t_list *stack)
             tmp = tmp->next;
         }
         cpy = cpy->next;
+    }
+}
+
+void    changeindex(t_list *stack)
+{
+    int     i;
+    t_list  *tmp;
+
+    i = 0;
+    tmp = stack;
+    while(tmp)
+    {
+        tmp->index = i++;
+        tmp = tmp->next;
     }
 }
 int   implement(t_list **stack, int num)

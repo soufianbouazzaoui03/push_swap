@@ -6,12 +6,36 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 00:56:42 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/02 02:45:54 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:31:53 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void    retateb(t_list **stack)
+{
+    t_list  *tmp;
+
+    if(!stack)
+        return ;
+    tmp = *stack;
+    *stack = (*stack)->next;
+    tmp->next = NULL;
+    ft_lstadd_back(stack, tmp);
+    printf("rb\n");
+}
+void    retatea(t_list **stack)
+{
+    t_list  *tmp;
+
+    if(!stack)
+        return ;
+    tmp = *stack;
+    *stack = (*stack)->next;
+    tmp->next = NULL;
+    ft_lstadd_back(stack, tmp);
+    printf("ra\n");
+}
 void    retate(t_list **stack)
 {
     t_list  *tmp;
@@ -22,31 +46,38 @@ void    retate(t_list **stack)
     *stack = (*stack)->next;
     tmp->next = NULL;
     ft_lstadd_back(stack, tmp);
-    printf("retate");
 }
 
-void    rr(t_list *stack1, t_list *stack2)
+void    rr(t_list **stack1, t_list **stack2)
 {
-    retate(&stack1);
-    retate(&stack2);
+    retate(stack1);
+    retate(stack2);
+    printf("rr\n");
 }
+
 
 void rev(t_list **stack) {
     t_list *last;
     t_list *tmp;
 
-    if (!stack || !(*stack))
+    if (!stack || !(*stack) || !(*stack)->next)
         return;
+
     last = *stack;
+    tmp = NULL;
+
     while(last->next)
     {
         tmp = last;
         last = last->next;
     }
+
     tmp->next = NULL;
     last->next = *stack;
     *stack = last;
+    printf("rrb\n");
 }
+
 
 
 void    rrev(t_list *stack1, t_list *stack2)

@@ -6,20 +6,30 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:30:59 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/02 02:43:56 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/03 19:17:40 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    push(t_list **stack1, t_list **stack2)
+void    pusha(t_list **stack1, t_list **stack2)
 {
     t_list *push;
     
     push = *stack1;
     *stack1 = (*stack1)->next;
     ft_lstadd_front(stack2, push);
-    printf("pb");
+    printf("pa\n");
+}
+
+void    pushb(t_list **stack1, t_list **stack2)
+{
+    t_list *push;
+    
+    push = *stack1;
+    *stack1 = (*stack1)->next;
+    ft_lstadd_front(stack2, push);
+    printf("pb\n");
 }
 // int main()
 // {

@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:08:56 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/02 00:27:27 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:00:13 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,23 @@ int main(int argc, char **argv)
     //     return (0);
     cpy = stack;
     indexed(stack);
-    while(cpy)
-    {
-        printf("%d ======== %d\n", cpy->content, cpy->index);
-        cpy = cpy->next;
-    }
+    // while(cpy)
+    // {
+    //     printf("%d ======== %d\n", cpy->content, cpy->index);
+    //     cpy = cpy->next;
+    // }
+    //exit(1);
     sorting(&stack, &stackb);
-    printf("test\n");
-    while(stackb)
-    {
-        printf("%d\n", stackb->content);
-        stackb = stackb->next;
-    }
+//     cpy = stackb;
+//    while(cpy)
+//     {
+//         printf("%d ======== %d\n", cpy->content, cpy->index);
+//         cpy = cpy->next;
+//     }
+    sorting2(&stack, &stackb);
+    // while(stack)
+    // {
+    //     printf("index :%d-------%d\n",stack->index, stack->content);
+    //     stack = stack->next;
+    // }
 }
