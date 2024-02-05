@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:38:24 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/03 21:31:31 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/05 01:51:54 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct list
 }t_list;
 
 int implement(t_list **stack, int num);
-int is_sorted(t_list *stack);
+int is_sorted(t_list *stacka);
 t_list *findmax(t_list *stack);
 void    indexed(t_list *stack);
 void    changeindex(t_list *stack);
@@ -33,6 +33,8 @@ void    sorting(t_list **stacka, t_list **stackb);
 void    sortback(t_list **stacka, t_list **stackb);
 int ft_bestmove(t_list *stack);
 void sorting2(t_list **stacka, t_list **stackb);
+int checklist(int argc, char **argv, t_list **stack);
+int checknum(char *num);
 
 char	**ft_split(const char *s, char c);
 int	ft_atoi(const char *str);
@@ -55,3 +57,7 @@ void    pushb(t_list **stack1, t_list **stack2);
 void    pusha(t_list **stack1, t_list **stack2);
 void    swap(t_list **stack);
 void    ss(t_list **stack1, t_list **stack2);
+
+
+t_list *find2nd(t_list *stack);
+int ft_bestmove2(t_list *stack);

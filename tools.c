@@ -6,14 +6,17 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:31 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/03 16:52:43 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/04 19:44:58 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_sorted(t_list *stack)
+int is_sorted(t_list *stacka)
 {
+    t_list *stack;
+
+    stack = stacka;
     while(stack && stack->next)
     {
         if(stack->content >= stack->next->content)

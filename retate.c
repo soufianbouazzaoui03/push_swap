@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 00:56:42 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/03 21:31:53 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/04 18:26:45 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ void rev(t_list **stack) {
     *stack = last;
     printf("rrb\n");
 }
-
-
 
 void    rrev(t_list *stack1, t_list *stack2)
 {

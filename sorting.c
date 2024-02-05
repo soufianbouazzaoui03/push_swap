@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 23:27:11 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/03 23:17:46 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/05 04:28:31 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int position(t_list *stack, int i)
         pos++;
         tmp = tmp->next;
     }
-    return (-1);
+    return 0;
 }
 
 t_list *findmax(t_list *stack)
@@ -83,42 +83,94 @@ t_list *findmax(t_list *stack)
 
 int ft_bestmove(t_list *stack)
 {
-    int i;
-
+    t_list  *maxNode;
+    int     i;
+    
     i = 0;
-    while(stack)
+    maxNode = findmax(stack);
+    while (stack)
     {
-        if(stack->content == findmax(stack)->content)
-            return (i);
+        if (stack->content == maxNode->content)
+            return i;
         i++;
         stack = stack->next;
     }
-    return (-1);
+    return -1;
 }
+
+int ft_bestmove2(t_list *stack)
+{
+    t_list  *secondNode;
+    int     i;
+    
+    i = 0;
+    secondNode = find2nd(stack);
+    while (stack)
+    {
+        if (stack->content == secondNode->content)
+            return i;
+        i++;
+        stack = stack->next;
+    }
+    return -1;
+}
+t_list *find2nd(t_list *stack)
+{
+    t_list *max;
+    t_list *second;
+    t_list *cpy;
+
+    max = findmax(stack);
+    second = ft_lstnew(INT_MIN);
+    cpy = stack;
+    while(cpy)
+    {
+        if(cpy->content > second->content && cpy->content != max->content)
+            second = cpy;
+        cpy = cpy->next;
+    }
+    return (second);
+}
+
+
 void sorting2(t_list **stacka, t_list **stackb)
 {
     int bestmove;
+    int bestmove2;
     int ref;
 
-    bestmove = 0;
-    int i = 0;
     ref = ft_lstsize(*stackb) / 2;
     while((*stackb))
     {
         ref = ft_lstsize(*stackb) / 2;
         bestmove = ft_bestmove((*stackb));
+        bestmove2 = ft_bestmove2((*stackb));
         if(bestmove < ref)
         {
-            while(bestmove--)
+            while((bestmove--))
                 retateb(stackb);
             pusha(stackb, stacka);
         }
         else
         {
             bestmove = ft_lstsize(*stackb) - bestmove;
-            while((bestmove--))
-                rev(stackb);
-            pusha(stackb, stacka);
+            bestmove2 = ft_lstsize(*stackb) - bestmove2;
+            if(bestmove2 < bestmove)
+            {
+                while((bestmove2--) && bestmove--)
+                    rev(stackb);
+                pusha(stackb, stacka);
+                while((bestmove--))
+                    rev(stackb);
+                pusha(stackb, stacka);
+                swap(stacka);
+            }
+            else
+            {
+                while((bestmove--))
+                    rev(stackb);
+                pusha(stackb, stacka);
+            }
         }
     }
 }

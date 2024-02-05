@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:46:19 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/25 14:17:15 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/05 02:12:58 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ void    swap(t_list **stack)
 {
     int tmp;
 
-    if(!stack || !*stack || ft_lstsize(*stack) <= 1)
-        return ;
     tmp = (*stack)->content;
     (*stack)->content = (*stack)->next->content;
     (*stack)->next->content = tmp;
+    printf("sa\n");
 }
 
 
