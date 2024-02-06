@@ -6,11 +6,24 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:08:56 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/04 20:39:20 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/06 03:24:21 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void ft_sign(int *i, int *sign, char *num)
+{
+    if (num[*i] == '+' && (*i)++) 
+    {
+        *sign = 1;
+    }
+    if (num[*i] == '-' && (*i)++) 
+    {
+        *sign = -1;
+    }
+}
+
 
 int checknum(char *num)
 {
@@ -27,10 +40,7 @@ int checknum(char *num)
         i++;
     if(num[i] == '\0')
         return (1);
-    if(num[i] == '+' && i++)
-        sign = 1;
-    if(num[i] == '-' && i++)
-        sign = -1;
+    ft_sign(&i, &sign, num);
     if(num[i] == '\0')
         return (1);
     while(num[i] >= '0' && num[i] <= '9')
@@ -55,7 +65,7 @@ int checklist(int argc, char **argv, t_list **stack)
     {
         list = ft_split(argv[i], ' ');
         if(!list[0])
-            return (ft_lstclear(stack, free),free(list), 1);
+            return (ft_lstclear(stack, free),free(list), 2);
         j = 0;
         while(list[j])
         {
@@ -68,35 +78,3 @@ int checklist(int argc, char **argv, t_list **stack)
     }
     return (0);
 }
-
-// int main(int argc, char **argv)
-// {
-//     t_list *stack;
-//     t_list *stackb;
-//     t_list  *cpy;
-//     if(checklist(argc, argv, &stack))
-//             printf("error");
-//     // if(is_sorted(stack))
-//     //     return (0);
-//     cpy = stack;
-//     indexed(stack);
-//     // while(cpy)
-//     // {
-//     //     printf("%d ======== %d\n", cpy->content, cpy->index);
-//     //     cpy = cpy->next;
-//     // }
-//     //exit(1);
-//     sorting(&stack, &stackb);
-// //     cpy = stackb;
-// //    while(cpy)
-// //     {
-// //         printf("%d ======== %d\n", cpy->content, cpy->index);
-// //         cpy = cpy->next;
-// //     }
-//     sorting2(&stack, &stackb);
-//     // while(stack)
-//     // {
-//     //     printf("index :%d-------%d\n",stack->index, stack->content);
-//     //     stack = stack->next;
-//     // }
-// }

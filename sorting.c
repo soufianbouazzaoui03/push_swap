@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 23:27:11 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/05 23:58:36 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/06 02:26:53 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,7 @@ void    sorting(t_list **stacka, t_list **stackb)
     while(*stacka)
     {
         rule = chunk - ref;
-        if((*stacka)->index < chunk)
-        {
-            if((*stacka)->index >= rule)
-            {
-                pushb(stacka, stackb);
-                if (*stacka && (*stacka)->index > chunk)
-                    rr(stacka ,stackb);
-                else
-                    retateb(stackb);
-            }
-            else
-                pushb(stacka, stackb);
-        }
-        else
-            retatea(stacka);
+        firstpush(rule, chunk, stacka, stackb);
         if(ft_lstsize(*stackb) == chunk)
             chunk += fchunk;
     }
@@ -145,43 +131,18 @@ void sorting2(t_list **stacka, t_list **stackb)
         ref = ft_lstsize(*stackb) / 2;
         bestmove = ft_bestmove((*stackb));
         bestmove2 = ft_bestmove2((*stackb));
-        if(bestmove2 < bestmove && bestmove < ref)
-        {
-            while((bestmove2--))
-                retateb(stackb);
-            pusha(stackb, stacka);
-            bestmove = ft_bestmove((*stackb));
-            while(bestmove--)
-                retateb(stackb);
-            pusha(stackb, stacka);
-            swap(stacka);
-        }
-        else if(bestmove < ref)
-        {
-            while((bestmove--))
-                retateb(stackb);
-            pusha(stackb, stacka);
-        }
+        if (bestmove2 < bestmove && bestmove < ref)
+            bestmovesort2(bestmove, bestmove2, stacka, stackb);
+        else if (bestmove < ref)
+            bestmovesort(bestmove, stacka, stackb);
         else
         {
             bestmove = ft_lstsize(*stackb) - bestmove;
             bestmove2 = ft_lstsize(*stackb) - bestmove2;
-            if(bestmove2 < bestmove)
-            {
-                while((bestmove2--) && bestmove--)
-                    rev(stackb);
-                pusha(stackb, stacka);
-                while((bestmove--))
-                    rev(stackb);
-                pusha(stackb, stacka);
-                swap(stacka);
-            }
+            if (bestmove2 < bestmove)
+                rev_bestmovesort2(bestmove, bestmove2, stacka, stackb);
             else
-            {
-                while((bestmove--))
-                    rev(stackb);
-                pusha(stackb, stacka);
-            }
+                rev_bestmovesort(bestmove, stacka, stackb);
         }
     }
 }

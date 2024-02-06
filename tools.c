@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:31 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/04 19:44:58 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/06 03:27:59 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int   implement(t_list **stack, int num)
         tmp = tmp->next;
     }
     new = ft_lstnew(num);
+    if(!new)
+        return(ft_lstclear(stack, free), 1);
     ft_lstadd_back(stack, new);
     return (0);
 }

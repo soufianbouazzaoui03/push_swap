@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:38:24 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/05 01:51:54 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/06 02:26:01 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,9 @@ void    ss(t_list **stack1, t_list **stack2);
 
 t_list *find2nd(t_list *stack);
 int ft_bestmove2(t_list *stack);
+
+void    bestmovesort(int bestmove, t_list **stacka, t_list ** stackb);
+void    bestmovesort2(int bestmove, int bestmove2, t_list **stacka, t_list ** stackb);
+void    rev_bestmovesort2(int bestmove, int bestmove2, t_list **stacka, t_list ** stackb);
+void    rev_bestmovesort(int bestmove, t_list **stacka, t_list ** stackb);
+void    firstpush(int rule, int chunk, t_list **stacka, t_list **stackb);
