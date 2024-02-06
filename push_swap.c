@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 19:43:04 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/06 03:25:42 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/06 06:12:01 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(int argc, char **argv)
 {
     t_list *stack;
     t_list *stackb;
+    
     if(checklist(argc, argv, &stack))
     {
         if (checklist(argc, argv, &stack) == 2)
@@ -43,6 +44,8 @@ int main(int argc, char **argv)
         ft_lstclear(&stack, free);
         exit(EXIT_FAILURE);
     }
+    if(ft_lstsize(stack) == 3)
+        return (sort3(&stack), 0);
     indexed(stack);
     sorting(&stack, &stackb);
     sorting2(&stack, &stackb);

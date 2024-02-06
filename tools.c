@@ -6,11 +6,21 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:31 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/06 03:27:59 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/06 05:24:18 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void    ft_putstr(char *str)
+{
+    while(*str)
+    {
+        write(1, str, 1);
+        str++;
+    }
+    write(1, "\n", 1);
+}
 
 int is_sorted(t_list *stacka)
 {

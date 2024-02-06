@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:08:56 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/06 03:24:21 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/06 06:11:43 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ int checknum(char *num)
         i++;
     if(num[i] == '\0')
         return (1);
+    // if(num[i] == '+' && i++)
+    //     sign = 1;
+    // if(num[i] == '-' && i++)
+    //     sign = -1;
     ft_sign(&i, &sign, num);
     if(num[i] == '\0')
         return (1);
