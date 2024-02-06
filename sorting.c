@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 23:27:11 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/05 04:28:31 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:58:36 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,18 @@ void sorting2(t_list **stacka, t_list **stackb)
         ref = ft_lstsize(*stackb) / 2;
         bestmove = ft_bestmove((*stackb));
         bestmove2 = ft_bestmove2((*stackb));
-        if(bestmove < ref)
+        if(bestmove2 < bestmove && bestmove < ref)
+        {
+            while((bestmove2--))
+                retateb(stackb);
+            pusha(stackb, stacka);
+            bestmove = ft_bestmove((*stackb));
+            while(bestmove--)
+                retateb(stackb);
+            pusha(stackb, stacka);
+            swap(stacka);
+        }
+        else if(bestmove < ref)
         {
             while((bestmove--))
                 retateb(stackb);
