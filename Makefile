@@ -4,7 +4,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 
-SRC = push_swap.c sortsmall.c sortfunctions.c ft_atoi.c ft_split.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstlast_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c parsing.c push.c retate.c sorting.c swap.c tools.c 
+SRC = push_swap.c sortsmall.c sortfunctions.c retate2.c sorting2.c ft_atoi.c ft_split.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstlast_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c parsing.c push.c retate.c sorting.c swap.c tools.c 
 
 OBJ = $(SRC:%.c=%.o)
 

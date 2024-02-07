@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 02:27:29 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/29 15:12:36 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/07 03:52:46 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (!lst || !del)
 		return ;
-	//del(lst->content);
 	free(lst);
 }

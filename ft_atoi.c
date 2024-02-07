@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 04:02:27 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/28 15:06:42 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/07 03:53:36 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_isspace(int num)
 {
-	if (num == '\t' || num == '\n' || num == '\r' 
+	if (num == '\t' || num == '\n' || num == '\r'
 		|| num == '\f' || num == '\v' || num == ' ')
 		return (1);
 	else

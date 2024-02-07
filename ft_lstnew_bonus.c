@@ -6,11 +6,12 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 21:03:09 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/31 22:42:24 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/07 03:52:58 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 t_list	*ft_lstnew(int content)
 {
 	t_list	*rtr;
