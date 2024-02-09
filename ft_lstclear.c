@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 02:35:12 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/24 23:13:51 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:49:54 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*tmp;
+	t_list	*temp;
+	t_list	*dd;
 
-	if (!del || !lst)
-		return ;
-	tmp = *lst;
-	if (lst && *lst)
+	if (!(lst))
 	{
-		while (tmp)
-		{
-			tmp = (*lst)->next;
-			ft_lstdelone(*lst, del);
-			*lst = tmp;
-		}
+		ft_putstr_fd("ERROR_IN_FT_LSTCLEAR\n", 1);
+		return ;
+	}
+	temp = *lst;
+	*lst = NULL;
+	while (temp)
+	{
+		if (del)
+			del(temp->content);
+		dd = temp;
+		temp = temp->next;
+		ft_free(dd);
 	}
 }
