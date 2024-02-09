@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:08:56 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/07 03:32:16 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/08 22:35:29 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	checknum(char *num)
 	if ((num[i] < '0' || num[i] > '9') && num[i] != '\0')
 		return (1);
 	res *= sign;
-	if ((int)res < INT_MIN || (int)res > INT_MAX)
+	if (res < INT_MIN || res > INT_MAX)
 		return (1);
 	return (0);
 }
@@ -65,7 +65,8 @@ int	checklist(int argc, char **argv, t_list **stack)
 		while (list[j])
 		{
 			if (checknum(list[j]) || implement(stack, ft_atoi(list[j])))
-				return (ft_lstclear(stack, free), free(list), 1);
+				return (ft_lstclear(stack, free), free(list), free(list[j]), 1);
+			free(list[j]);
 			j++;
 		}
 		free(list);

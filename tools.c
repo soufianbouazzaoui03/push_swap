@@ -6,20 +6,23 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:31 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/07 03:30:25 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/07 22:44:19 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(const char *str)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		write(1, str, 1);
-		str++;
+		if (write(1, &str[i], 1) == -1)
+			exit(EXIT_FAILURE);
+		i++;
 	}
-	write(1, "\n", 1);
 }
 
 int	is_sorted(t_list *stacka)

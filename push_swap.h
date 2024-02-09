@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:38:24 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/07 04:11:08 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/08 23:16:05 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		checknum(char *num);
 
 char	**ft_split(const char *s, char c);
 int		ft_atoi(const char *str);
-void	ft_putstr(char *str);
+void	ft_putstr(const char *str);
 
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -54,12 +54,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	retatea(t_list **stack);
 void	retateb(t_list **stack);
 void	retate(t_list **stack);
+void	rrev(t_list **stack1, t_list **stack2);
 void	rr(t_list **stack1, t_list **stack2);
 void	rev(t_list **stack);
 void	reva(t_list **stack);
 void	pushb(t_list **stack1, t_list **stack2);
 void	pusha(t_list **stack1, t_list **stack2);
 void	swap(t_list **stack);
+void	swapb(t_list **stack);
 void	ss(t_list **stack1, t_list **stack2);
 
 t_list	*find2nd(t_list *stack);

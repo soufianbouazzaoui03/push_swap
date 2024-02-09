@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 00:56:42 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/07 04:17:34 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/09 00:14:03 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,33 @@ void	retateb(t_list **stack)
 {
 	t_list	*tmp;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(stack, tmp);
-	printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	retatea(t_list **stack)
 {
 	t_list	*tmp;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(stack, tmp);
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	retate(t_list **stack)
 {
 	t_list	*tmp;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
@@ -67,7 +67,7 @@ void	rev(t_list **stack)
 	tmp->next = NULL;
 	last->next = *stack;
 	*stack = last;
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	reva(t_list **stack)
@@ -87,5 +87,5 @@ void	reva(t_list **stack)
 	tmp->next = NULL;
 	last->next = *stack;
 	*stack = last;
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
