@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 23:12:49 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/09 02:03:45 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/09 07:53:34 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "./gnl/get_next_line.h"
+#include "checker_bonus.h"
+#include "../gnl/get_next_line.h"
 
 int	checker(char *instra, t_list **stacka, t_list **stackb)
 {
-	if(strcmp(instra, "sa\n") == 0)
+	if (strcmp(instra, "sa\n") == 0)
 		swap(stacka);
 	else if (strcmp(instra, "sb\n") == 0)
 		swapb(stackb);
@@ -49,25 +49,19 @@ int	main(int argc, char **argv)
 	if (checklist(argc, argv, &stacka))
 		return (ft_lstclear(&stacka, free), write(1, "Error\n", 6), 0);
 	if (is_sorted(stacka) == 0)
-	{
-		ft_lstclear(&stacka, free);
-		exit(EXIT_FAILURE);
-	}
-	while(1)
+		return (ft_lstclear(&stacka, free), write(1, "OK", 2), 0);
+	while (1)
 	{
 		instra = get_next_line(0);
-		if(!instra)
-			break;
-		if(checker(instra, &stacka, &stackb) == 1)
+		if (!instra)
+			break ;
+		if (checker(instra, &stacka, &stackb) == 1)
 			return (ft_lstclear(&stacka, free), write(1, "Error\n", 6), 0);
+		free(instra);
 	}
-	if(is_sorted(stacka) == 0)
-		printf("OK");
+	if (is_sorted(stacka) == 0)
+		write(1, "OK", 2);
 	else
-		printf("KO");
-	while(stacka)
-	{
-		printf("%d\n", stacka->content);
-		stacka = stacka->next;
-	}
+		write(1, "KO", 2);
+	return (ft_lstclear(&stacka, free), ft_lstclear(&stackb, free), 0);
 }

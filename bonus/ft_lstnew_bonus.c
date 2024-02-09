@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   retate2.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 04:16:15 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/09 07:49:43 by soel-bou         ###   ########.fr       */
+/*   Created: 2023/11/09 21:03:09 by soel-bou          #+#    #+#             */
+/*   Updated: 2024/02/09 05:31:46 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-void	rrev(t_list **stack1, t_list **stack2)
+t_list	*ft_lstnew(int content)
 {
-	rev(stack1);
-	rev(stack2);
-	write(1, "rrr\n", 4);
-}
+	t_list	*rtr;
 
-void	rr(t_list **stack1, t_list **stack2)
-{
-	retate(stack1);
-	retate(stack2);
-	write(1, "rr\n", 3);
+	rtr = (t_list *)malloc(sizeof(t_list));
+	if (!rtr)
+		return (NULL);
+	rtr->content = content;
+	rtr->index = 0;
+	rtr->next = NULL;
+	return (rtr);
 }

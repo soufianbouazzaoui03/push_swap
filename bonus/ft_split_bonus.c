@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 02:05:46 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/09 12:40:07 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/09 05:31:52 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 static int	wordcounter(const char *s, char c)
 {
@@ -70,7 +70,7 @@ static void	*ft_free(char **strs, int count)
 	return (NULL);
 }
 
-void	ft_initia(size_t *i, size_t *j, int *start)
+void static	ft_initia(size_t *i, size_t *j, int *start)
 {
 	*i = 0;
 	*j = 0;

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:08:56 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/09 12:40:18 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/09 07:43:23 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 static void	ft_sign(int *i, long *sign, char *num)
 {
@@ -26,7 +26,7 @@ static void	ft_sign(int *i, long *sign, char *num)
 int	checknum(char *num)
 {
 	int		i;
-	long	sign;
+	int		sign;
 	long	res;
 
 	res = 0;
@@ -46,23 +46,9 @@ int	checknum(char *num)
 	if ((num[i] < '0' || num[i] > '9') && num[i] != '\0')
 		return (1);
 	res *= sign;
-	if (res < -2147483648 || res > 2147483647)
+	if (res < INT_MIN || res > INT_MAX)
 		return (1);
 	return (0);
-}
-
-static void	*ft_free(char **strs)
-{
-	int	i;
-
-	i = 0;
-	while (strs[i])
-	{
-		free(strs[i]);
-		i++;
-	}
-	free(strs);
-	return (NULL);
 }
 
 int	checklist(int argc, char **argv, t_list **stack)
@@ -77,16 +63,17 @@ int	checklist(int argc, char **argv, t_list **stack)
 	{
 		list = ft_split(argv[i], ' ');
 		if (!list[0])
-			return (ft_lstclear(stack, free), ft_free(list), 1);
+			return (ft_lstclear(stack, free), free(list), 1);
 		j = 0;
 		while (list[j])
 		{
 			if (checknum(list[j]) || implement(stack, ft_atoi(list[j])))
-				return (ft_lstclear(stack, free), ft_free(list), 1);
-			//free(list[j]);
+				return (ft_lstclear(stack, free), free(list), free(list[j]), 1);
+			free(list[j]);
 			j++;
 		}
-		ft_free(list);
+		free(list);
+		list = NULL;
 	}
 	return (0);
 }
